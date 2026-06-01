@@ -1,0 +1,22 @@
+\begin{table}[!t]
+\caption{Main warning results under the Rogers--Satchell target. PR-AUC is maximized and Brier score is minimized within each index--horizon cell.}
+\label{tab:warning_results}
+\centering
+\small
+\setlength{\tabcolsep}{5.2pt}
+\renewcommand{\arraystretch}{1.12}
+\begin{tabular}{llcccccc}
+\toprule
+Index & Model & PR$(1)$ & Brier$(1)$ & PR$(5)$ & Brier$(5)$ & PR$(10)$ & Brier$(10)$ \\
+\midrule
+S\&P 500 & Naive Threshold & \second{0.4895} & \best{0.0948} & \second{0.5041} & \best{0.0985} & \second{0.4474} & \best{0.1041} \\
+ & Logistic-Raw & \best{0.5275} & \second{0.1327} & \best{0.5048} & \second{0.1271} & \best{0.5530} & \second{0.1143} \\
+\midrule
+Nasdaq-100 & Naive Threshold & \second{0.4652} & \best{0.1072} & \second{0.5141} & \best{0.1090} & \second{0.4496} & \best{0.1148} \\
+ & Logistic-Raw & \best{0.5496} & \second{0.1418} & \best{0.5960} & \second{0.1258} & \best{0.4852} & \second{0.1399} \\
+\midrule
+DJIA & Naive Threshold & \second{0.4733} & \best{0.0954} & \second{0.4882} & \best{0.0972} & \best{0.4712} & \best{0.0998} \\
+ & Logistic-Raw & \best{0.4900} & \second{0.1402} & \best{0.5782} & \second{0.1069} & \second{0.4672} & \second{0.1112} \\
+\bottomrule
+\end{tabular}
+\end{table}

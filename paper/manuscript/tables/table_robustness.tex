@@ -1,0 +1,17 @@
+\begin{table}[!t]
+\caption{Average QLIKE across the main and robustness settings. Ranking is applied within each row.}
+\label{tab:robustness_summary}
+\centering
+\small
+\setlength{\tabcolsep}{6pt}
+\renewcommand{\arraystretch}{1.12}
+\begin{tabular}{lccc}
+\toprule
+Setting & HAR & LightGBM & Wavelet-LightGBM \\
+\midrule
+Main RS & \best{-8.7885} & \second{-8.6812} & \third{-8.6494} \\
+Expanded Data & \best{-9.5949} & \third{-9.5641} & \second{-9.5704} \\
+Parkinson & \third{-9.3019} & \second{-9.3091} & \best{-9.3143} \\
+\bottomrule
+\end{tabular}
+\end{table}

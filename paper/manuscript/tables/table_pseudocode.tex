@@ -1,0 +1,21 @@
+\begin{table}[!t]
+\caption{Leakage-free pseudo-code of the rolling multiscale forecasting and warning procedure.}
+\label{tab:pseudocode}
+\centering
+\small
+\setlength{\tabcolsep}{5pt}
+\renewcommand{\arraystretch}{1.12}
+\begin{tabularx}{\textwidth}{>{\raggedright\arraybackslash}p{0.08\textwidth}X}
+\toprule
+Step & Operation \\
+\midrule
+1 & For each index \(i\) and horizon \(h\), define a rolling training window of 1260 trading days and a one-step-ahead out-of-sample forecast origin. \\
+2 & Construct the OHLC-based volatility target \(y_{i,t}^{(h)}\), persistence terms, technical indicators, implied-volatility proxies, and macro-financial predictors using only data available up to time \(t\). \\
+3 & Apply the causal non-decimated wavelet transform to selected high-value series and compute multiscale summaries such as recent coefficients, short-window means, standard deviations, and local energy terms. \\
+4 & Form the feature vector \(x_{i,t}=[x_{i,t}^{HAR},x_{i,t}^{raw},x_{i,t}^{wav}]\) and estimate the horizon-specific boosting model \(f_h(\cdot)\) on the transformed training target. \\
+5 & Generate the raw forecast \(\hat y_{i,t}^{(h)}\) and apply the horizon-specific lower-tail calibration safeguard to obtain the final regression forecast \(\tilde y_{i,t}^{(h)}\). \\
+6 & Compute the rolling high-risk threshold \(\tau_{i,t}^{(h)}\), estimate the logistic warning model on the training window, and choose the decision threshold that maximizes the training-window \(F_{\beta}\) score with \(\beta=2\). \\
+7 & Output the calibrated volatility forecast, the warning probability, and the warning label for the current out-of-sample date, then roll the window forward and repeat. \\
+\bottomrule
+\end{tabularx}
+\end{table}

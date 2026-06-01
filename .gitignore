@@ -1,0 +1,71 @@
+# ── Python ──────────────────────────────────────────────────────────────────
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.so
+*.egg
+*.egg-info/
+dist/
+build/
+.eggs/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+
+# ── Virtual environment ──────────────────────────────────────────────────────
+.venv/
+venv/
+env/
+
+# ── Jupyter ──────────────────────────────────────────────────────────────────
+.ipynb_checkpoints/
+*.ipynb_checkpoints
+
+# ── Data (re-downloadable via scripts/run_pipeline.py --stage download) ─────
+data/raw/
+data/interim/
+data/processed/
+
+# ── Experiment outputs (re-reproducible via run_pipeline / run_formal_batches)
+outputs/
+
+# ── Tools / binaries ─────────────────────────────────────────────────────────
+tools/
+
+# ── Paper: submission uploads & template download ────────────────────────────
+paper/submission_uploads/
+paper/template_download/
+
+# ── LaTeX auxiliary files ────────────────────────────────────────────────────
+*.aux
+*.lof
+*.log
+*.lot
+*.fls
+*.out
+*.toc
+*.fmt
+*.fot
+*.cb
+*.cb2
+*.bbl
+*.bcf
+*.blg
+*.fdb_latexmk
+*.synctex.gz
+*.synctex(busy)
+*.pdfsync
+*.run.xml
+paper/manuscript/*.aux
+paper/manuscript/*.log
+
+# ── OS ───────────────────────────────────────────────────────────────────────
+.DS_Store
+Thumbs.db
+
+# ── Old submission archives (root-level) ─────────────────────────────────────
+*.zip
+
+# ── Internal AI agent / Copilot customisation files ──────────────────────────
+.github/

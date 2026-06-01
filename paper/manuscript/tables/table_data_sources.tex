@@ -1,0 +1,19 @@
+\begin{table}[H]
+\caption{Public data blocks used in the baseline and robustness specifications. The table is organized by predictor block, source, and empirical role in the forecasting pipeline.}
+\label{tab:data_sources}
+\centering
+\small
+\setlength{\tabcolsep}{4pt}
+\renewcommand{\arraystretch}{1.15}
+\begin{tabularx}{\textwidth}{>{\raggedright\arraybackslash}p{0.16\textwidth}>{\raggedright\arraybackslash}X>{\raggedright\arraybackslash}p{0.16\textwidth}>{\raggedright\arraybackslash}p{0.24\textwidth}}
+\toprule
+Block & Variables / symbols & Source & Main role \\
+\midrule
+Equity indices & S\&P 500, Nasdaq-100, DJIA & Stooq & Daily OHLC prices and volatility targets \\
+Liquidity proxies & SPY, QQQ, DIA & Stooq & ETF-based volume and trading-activity proxies \\
+Implied volatility & VIXCLS, VXNCLS, VXDCLS & FRED (CBOE series) & Index-specific forward-looking risk proxies \\
+Rates and conditions & DFF, DGS10, T10Y3M, NFCI, USRECD & FRED & Macro-financial and regime controls \\
+Expanded public risk data & DGS2, BAMLH0A0HYM2, BAMLC0A0CM, USEPUINDXD, RVXCLS, VXVCLS & FRED & Credit, policy-uncertainty, and volatility-term-structure robustness block \\
+\bottomrule
+\end{tabularx}
+\end{table}

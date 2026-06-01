@@ -1,0 +1,109 @@
+index_id,index_label,horizon,source,scale,value
+spx,S&P 500,1,Target variance,Short,0.3208328727509524
+spx,S&P 500,1,Target variance,Medium,0.3949865097191505
+spx,S&P 500,1,Target variance,Long,0.4981463017410533
+spx,S&P 500,1,Target variance,Approx.,0.14581768106544674
+spx,S&P 500,1,Absolute return,Short,0.22054498473312378
+spx,S&P 500,1,Absolute return,Medium,0.3545858803291063
+spx,S&P 500,1,Absolute return,Long,0.5110597227000093
+spx,S&P 500,1,Absolute return,Approx.,0.09074341402368165
+spx,S&P 500,1,Implied volatility,Short,0.3054041780404137
+spx,S&P 500,1,Implied volatility,Medium,0.3430397902716137
+spx,S&P 500,1,Implied volatility,Long,0.3902973108208721
+spx,S&P 500,1,Implied volatility,Approx.,0.13497972637649672
+spx,S&P 500,5,Target variance,Short,0.3290798839878224
+spx,S&P 500,5,Target variance,Medium,0.42010808706795416
+spx,S&P 500,5,Target variance,Long,0.5511905841766112
+spx,S&P 500,5,Target variance,Approx.,0.10323449622799807
+spx,S&P 500,5,Absolute return,Short,0.232587434468647
+spx,S&P 500,5,Absolute return,Medium,0.383134072910446
+spx,S&P 500,5,Absolute return,Long,0.5826287106062469
+spx,S&P 500,5,Absolute return,Approx.,0.06922295352735033
+spx,S&P 500,5,Implied volatility,Short,0.33724773396454816
+spx,S&P 500,5,Implied volatility,Medium,0.39108483596949145
+spx,S&P 500,5,Implied volatility,Long,0.44322172731209064
+spx,S&P 500,5,Implied volatility,Approx.,0.14049929755539278
+spx,S&P 500,10,Target variance,Short,0.30336886553288367
+spx,S&P 500,10,Target variance,Medium,0.39800853587965274
+spx,S&P 500,10,Target variance,Long,0.5196149798485232
+spx,S&P 500,10,Target variance,Approx.,0.06474758155850667
+spx,S&P 500,10,Absolute return,Short,0.25867454363036146
+spx,S&P 500,10,Absolute return,Medium,0.353826033456878
+spx,S&P 500,10,Absolute return,Long,0.5583141068960851
+spx,S&P 500,10,Absolute return,Approx.,0.04115835691382397
+spx,S&P 500,10,Implied volatility,Short,0.3087023077632361
+spx,S&P 500,10,Implied volatility,Medium,0.37801635461983435
+spx,S&P 500,10,Implied volatility,Long,0.42561706240350294
+spx,S&P 500,10,Implied volatility,Approx.,0.12298231812532665
+ndq,Nasdaq-100,1,Target variance,Short,0.32623489766189906
+ndq,Nasdaq-100,1,Target variance,Medium,0.3998540724452343
+ndq,Nasdaq-100,1,Target variance,Long,0.4870308439008411
+ndq,Nasdaq-100,1,Target variance,Approx.,0.1546606364314777
+ndq,Nasdaq-100,1,Absolute return,Short,0.22674310890783453
+ndq,Nasdaq-100,1,Absolute return,Medium,0.35290636974743655
+ndq,Nasdaq-100,1,Absolute return,Long,0.5004881321750343
+ndq,Nasdaq-100,1,Absolute return,Approx.,0.0945813562601733
+ndq,Nasdaq-100,1,Implied volatility,Short,0.30125852090665906
+ndq,Nasdaq-100,1,Implied volatility,Medium,0.34201421896230827
+ndq,Nasdaq-100,1,Implied volatility,Long,0.3845949199581622
+ndq,Nasdaq-100,1,Implied volatility,Approx.,0.17534298607499957
+ndq,Nasdaq-100,5,Target variance,Short,0.3287113888049116
+ndq,Nasdaq-100,5,Target variance,Medium,0.4272265601473993
+ndq,Nasdaq-100,5,Target variance,Long,0.5507301277877005
+ndq,Nasdaq-100,5,Target variance,Approx.,0.12666805151581073
+ndq,Nasdaq-100,5,Absolute return,Short,0.23664335603554454
+ndq,Nasdaq-100,5,Absolute return,Medium,0.3796155050761387
+ndq,Nasdaq-100,5,Absolute return,Long,0.5682498236148376
+ndq,Nasdaq-100,5,Absolute return,Approx.,0.06730386062243252
+ndq,Nasdaq-100,5,Implied volatility,Short,0.34091700272279285
+ndq,Nasdaq-100,5,Implied volatility,Medium,0.3983340395476416
+ndq,Nasdaq-100,5,Implied volatility,Long,0.44295379083686987
+ndq,Nasdaq-100,5,Implied volatility,Approx.,0.19523995246575337
+ndq,Nasdaq-100,10,Target variance,Short,0.29555717390437175
+ndq,Nasdaq-100,10,Target variance,Medium,0.4118320092375156
+ndq,Nasdaq-100,10,Target variance,Long,0.5379169407951873
+ndq,Nasdaq-100,10,Target variance,Approx.,0.10057550804734229
+ndq,Nasdaq-100,10,Absolute return,Short,0.2572267758229449
+ndq,Nasdaq-100,10,Absolute return,Medium,0.3541282301073419
+ndq,Nasdaq-100,10,Absolute return,Long,0.5543527262607326
+ndq,Nasdaq-100,10,Absolute return,Approx.,0.04695561094894121
+ndq,Nasdaq-100,10,Implied volatility,Short,0.31777345366578263
+ndq,Nasdaq-100,10,Implied volatility,Medium,0.3912175852522725
+ndq,Nasdaq-100,10,Implied volatility,Long,0.43482524955055185
+ndq,Nasdaq-100,10,Implied volatility,Approx.,0.1842917033546085
+dji,DJIA,1,Target variance,Short,0.2937861409878897
+dji,DJIA,1,Target variance,Medium,0.3816341024497855
+dji,DJIA,1,Target variance,Long,0.4895987734007482
+dji,DJIA,1,Target variance,Approx.,0.12146363080875652
+dji,DJIA,1,Absolute return,Short,0.18527126871944286
+dji,DJIA,1,Absolute return,Medium,0.3136780522233062
+dji,DJIA,1,Absolute return,Long,0.43754886237823587
+dji,DJIA,1,Absolute return,Approx.,0.04856501332777066
+dji,DJIA,1,Implied volatility,Short,0.25859528764785567
+dji,DJIA,1,Implied volatility,Medium,0.30000381012835825
+dji,DJIA,1,Implied volatility,Long,0.31449280071335634
+dji,DJIA,1,Implied volatility,Approx.,0.10289059608291062
+dji,DJIA,5,Target variance,Short,0.3087717864822155
+dji,DJIA,5,Target variance,Medium,0.4160359741473519
+dji,DJIA,5,Target variance,Long,0.5506851238627161
+dji,DJIA,5,Target variance,Approx.,0.09183062669428087
+dji,DJIA,5,Absolute return,Short,0.21420000182191667
+dji,DJIA,5,Absolute return,Medium,0.343406607028096
+dji,DJIA,5,Absolute return,Long,0.49369772507567655
+dji,DJIA,5,Absolute return,Approx.,0.04592799686545239
+dji,DJIA,5,Implied volatility,Short,0.2988791877102284
+dji,DJIA,5,Implied volatility,Medium,0.3484283138584395
+dji,DJIA,5,Implied volatility,Long,0.3549020616840963
+dji,DJIA,5,Implied volatility,Approx.,0.10756603777441072
+dji,DJIA,10,Target variance,Short,0.2829887592255711
+dji,DJIA,10,Target variance,Medium,0.3956841130812527
+dji,DJIA,10,Target variance,Long,0.5248330137981464
+dji,DJIA,10,Target variance,Approx.,0.0630359613689415
+dji,DJIA,10,Absolute return,Short,0.24214815497215936
+dji,DJIA,10,Absolute return,Medium,0.3136634225304489
+dji,DJIA,10,Absolute return,Long,0.4798034847326328
+dji,DJIA,10,Absolute return,Approx.,0.014485855098272271
+dji,DJIA,10,Implied volatility,Short,0.2828660184885902
+dji,DJIA,10,Implied volatility,Medium,0.34187121386115277
+dji,DJIA,10,Implied volatility,Long,0.3318402948315249
+dji,DJIA,10,Implied volatility,Approx.,0.09416755067915554

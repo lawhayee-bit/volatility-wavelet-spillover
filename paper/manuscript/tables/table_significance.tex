@@ -1,0 +1,33 @@
+\begin{table}[!t]
+\caption{Forecast comparison tests against HAR in the main specification.}
+\label{tab:significance_tests}
+\centering
+\scriptsize
+\setlength{\tabcolsep}{3.5pt}
+\resizebox{\textwidth}{!}{%
+\begin{tabular}{lllllll}
+\toprule
+Index & Horizon & Model & DM stat & DM p-value & CW stat & CW p-value \\
+\midrule
+DJIA & 1 & LightGBM & 3.572 & 0.0004 & 2.060 & 0.0197 \\
+DJIA & 1 & Wavelet-LightGBM & 3.344 & 0.0008 & 2.440 & 0.0073 \\
+DJIA & 5 & LightGBM & 1.925 & 0.0542 & 2.333 & 0.0098 \\
+DJIA & 5 & Wavelet-LightGBM & 1.458 & 0.1448 & 2.503 & 0.0062 \\
+DJIA & 10 & LightGBM & -0.228 & 0.8194 & 2.901 & 0.0019 \\
+DJIA & 10 & Wavelet-LightGBM & -1.158 & 0.2467 & 2.983 & 0.0014 \\
+Nasdaq-100 & 1 & LightGBM & 2.927 & 0.0034 & 2.935 & 0.0017 \\
+Nasdaq-100 & 1 & Wavelet-LightGBM & 3.967 & 0.0001 & 3.542 & 0.0002 \\
+Nasdaq-100 & 5 & LightGBM & -0.990 & 0.3224 & 4.516 & 0.0000 \\
+Nasdaq-100 & 5 & Wavelet-LightGBM & -0.353 & 0.7239 & 4.927 & 0.0000 \\
+Nasdaq-100 & 10 & LightGBM & -1.080 & 0.2801 & 4.682 & 0.0000 \\
+Nasdaq-100 & 10 & Wavelet-LightGBM & -2.145 & 0.0320 & 4.821 & 0.0000 \\
+S\&P 500 & 1 & LightGBM & 2.639 & 0.0083 & 2.641 & 0.0041 \\
+S\&P 500 & 1 & Wavelet-LightGBM & 2.614 & 0.0090 & 2.669 & 0.0038 \\
+S\&P 500 & 5 & LightGBM & 1.004 & 0.3155 & 2.489 & 0.0064 \\
+S\&P 500 & 5 & Wavelet-LightGBM & 0.900 & 0.3683 & 2.678 & 0.0037 \\
+S\&P 500 & 10 & LightGBM & -0.180 & 0.8572 & 2.784 & 0.0027 \\
+S\&P 500 & 10 & Wavelet-LightGBM & 0.202 & 0.8398 & 2.736 & 0.0031 \\
+\bottomrule
+\end{tabular}
+}
+\end{table}

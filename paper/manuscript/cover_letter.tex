@@ -1,0 +1,115 @@
+\documentclass[11pt, a4paper]{letter}
+
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{lmodern}
+\usepackage[margin=2.5cm]{geometry}
+\usepackage{microtype}
+\usepackage{hyperref}
+\hypersetup{colorlinks=true, urlcolor=blue, linkcolor=black}
+
+\address{%
+  Aiping Jiang\\
+  SHU-UTS SILC Business School\\
+  Shanghai University\\
+  Jiading District, Shanghai 201800, China\\
+  \href{mailto:ajiang@shu.edu.cn}{ajiang@shu.edu.cn}
+}
+
+\date{22 April 2026}
+
+\signature{Aiping Jiang\\(Corresponding Author, on behalf of all authors)}
+
+\begin{document}
+
+\begin{letter}{%
+  Editorial Office\\
+  \textit{Risks}\\
+  MDPI AG, St.\ Alban-Anlage 66\\
+  4052 Basel, Switzerland
+}
+
+\opening{Dear Editors,}
+
+We wish to submit our manuscript entitled
+
+\begin{center}
+  \textbf{``Public-Data Causal Multiscale Wavelet Spillover Learning for\\
+  Stock Index Volatility Forecasting and Risk Early Warning''}
+\end{center}
+
+\noindent for consideration for publication as an original \textit{Article} in
+\textit{Risks}.
+
+\textbf{Financial risk context and motivation.}
+Forecasting stock-index volatility and issuing timely high-risk warnings are
+core tasks in market risk management because they affect portfolio scaling,
+hedging, margin planning, and stress monitoring. Our manuscript addresses
+this problem with a reproducible Causal Multiscale Wavelet Spillover
+Learning (CMWSL) framework that combines HAR persistence features, causal
+stationary wavelet transform (SWT) summaries, and a cross-index spillover
+extension based on medium- and long-scale wavelet energy from peer
+markets. All components are evaluated under a strict
+walk-forward design so that feature construction, estimation, calibration,
+and warning generation remain leakage-free.
+
+\textbf{Key contributions.}
+This study makes four contributions aligned with \textit{Risks}'s scope:
+\begin{enumerate}
+
+  \item \textbf{Unified public-data risk pipeline.}
+    We integrate volatility forecasting and high-risk warning inside one
+    causal framework based entirely on public daily market and
+    macro-financial data.
+
+  \item \textbf{Cross-index wavelet spillover test.}
+    We formalise cross-index wavelet spillover as an incremental-information
+    problem and evaluate it through a nested ablation:
+    HAR $\rightarrow$ Wavelet-LGB $\rightarrow$ Spillover-LGB.
+    Clark--West tests detect significant spillover gains in five of nine
+    index--horizon cells, with the strongest result for the S\&P~500 at
+    $h=10$ (CW\,$=4.83$, $p<0.001$).
+
+  \item \textbf{Conditional risk diagnostics.}
+    Beyond average forecast rankings, we report conditional diagnostics,
+    including tail, state, rolling-window, and event-based evidence, to
+    show where the multiscale and spillover features matter most.
+
+  \item \textbf{Reproducible implementation.}
+    The study is fully based on public data, deterministic scripts, and
+    reviewer-ready experiment artifacts so that the main evidence can be
+    audited and rerun without proprietary feeds.
+
+\end{enumerate}
+
+\textbf{Fit with \textit{Risks}.}
+This manuscript aligns directly with \textit{Risks}'s focus on market risk,
+volatility forecasting, warning design, and spillover analysis. The paper is
+finance-specific in its data, prediction tasks, interpretation, and
+practical implications. It also emphasizes strong baselines, strict
+walk-forward evaluation, and reproducibility, all of which are important for
+credible applied risk research.
+
+\textbf{Originality and ethical statements.}
+This manuscript is original work that has not been published elsewhere and
+is not currently under consideration at any other journal.
+All authors have read and approved the final manuscript.
+No ethical approval was required; only publicly available financial market
+data (Stooq, FRED) were used.
+
+We are happy to suggest reviewers or provide any additional material at
+your request.
+Thank you for your time and consideration.
+
+\closing{Sincerely,}
+
+\ps{Author contributions:
+H.L.\,---\,conceptualisation, methodology, software, formal analysis,
+  data curation, visualisation, writing (original draft);
+Y.S.\,---\,validation, writing (review \&\ editing);
+A.J.\,---\,conceptualisation, supervision, writing (review \&\ editing).
+Funding: This research received no external funding.
+Conflicts of interest: The authors declare no conflicts of interest.}
+
+\end{letter}
+\end{document}

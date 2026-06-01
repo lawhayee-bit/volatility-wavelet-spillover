@@ -1,0 +1,25 @@
+\begin{table}[H]
+\caption{Core notation used in the methodological formulation.}
+\label{tab:notation}
+\centering
+\small
+\setlength{\tabcolsep}{4pt}
+\renewcommand{\arraystretch}{1.12}
+\begin{tabularx}{\textwidth}{>{\raggedright\arraybackslash}p{0.15\textwidth}>{\raggedright\arraybackslash}p{0.18\textwidth}X}
+\toprule
+Symbol & Category & Meaning \\
+\midrule
+\(i\) & Cross-sectional index & Market index identifier (\(\mathrm{SPX}\), \(\mathrm{NDQ}\), or \(\mathrm{DJI}\)) \\
+\(t\) & Time index & Forecast origin on trading day \(t\) \\
+\(h\) & Forecast horizon & Prediction horizon in trading days (\(1\), \(5\), or \(10\)) \\
+\(y_{i,t}^{(h)}\) & Forecast target & Future average volatility over the next \(h\) trading days \\
+\(\bar y_{i,t}^{(h)}\) & Transformed target & Log-transformed target used for model fitting \\
+\(x_{i,t}^{HAR}\) & Feature block & Daily, weekly, and monthly persistence features \\
+\(x_{i,t}^{raw}\) & Feature block & Technical, implied-volatility, and macro-financial predictors \\
+\(x_{i,t}^{wav}\) & Feature block & Causal wavelet summaries from volatility and risk series \\
+\(\tilde y_{i,t}^{(h)}\) & Calibrated forecast & Post-floor volatility prediction used for evaluation and warning linkage \\
+\(\tau_{i,t}^{(h)}\) & Warning threshold & Rolling in-window 90th percentile for defining high-risk states \\
+\(\hat p_{i,t}^{(h)}\) & Warning score & Predicted high-risk probability from the logistic warning layer \\
+\bottomrule
+\end{tabularx}
+\end{table}

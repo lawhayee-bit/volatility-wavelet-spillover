@@ -1,0 +1,114 @@
+% Risks (MDPI) manuscript draft for the stock index volatility project.
+\documentclass[risks,article,submit,moreauthors]{Definitions/mdpi}
+
+\usepackage{bm}   % bold math symbols (\bm) -- required for spillover feature notation
+
+\setlength{\headheight}{24pt}
+
+\firstpage{1}
+\makeatletter
+\setcounter{page}{\@firstpage}
+\makeatother
+\pubvolume{1}
+\issuenum{1}
+\articlenumber{0}
+\pubyear{2026}
+\copyrightyear{2026}
+\datereceived{}
+\daterevised{}
+\dateaccepted{}
+\datepublished{}
+\Title{Public-Data Causal Multiscale Wavelet Spillover Learning for Stock Index Volatility Forecasting and Risk Early Warning}
+
+\definecolor{BestTone}{HTML}{E7D7A6}
+\definecolor{SecondTone}{HTML}{EBCBB7}
+\definecolor{ThirdTone}{HTML}{D9E1E8}
+\newcommand{\best}[1]{\cellcolor{BestTone}\textbf{#1}}
+\newcommand{\second}[1]{\cellcolor{SecondTone}\underline{#1}}
+\newcommand{\third}[1]{\cellcolor{ThirdTone}{#1}}
+
+\newcommand{\orcidauthorA}{0009-0007-0602-7924}
+\newcommand{\orcidauthorB}{0009-0009-2858-6318}
+\newcommand{\orcidauthorC}{0000-0002-4822-9627}
+
+\Author{Hengyan Liu $^{1}$\orcidA{}, Yisu Shen $^{1}$\orcidB{} and Aiping Jiang $^{2,}$*\orcidC{}}
+\AuthorNames{Hengyan Liu, Yisu Shen and Aiping Jiang}
+
+\address{%
+$^{1}$ \quad Sino-European School of Technology, Shanghai University, Shanghai 200444, China; hengyan@shu.edu.cn (H.L.); yisu@shu.edu.cn (Y.S.) \\
+$^{2}$ \quad SHU-UTS SILC Business School, Shanghai University, Jiading District, Shanghai 201800, People's Republic of China; ajiang@shu.edu.cn (A.J.)}
+
+\corres{Correspondence: ajiang@shu.edu.cn}
+
+\abstract{Accurate volatility forecasting and timely risk early warning are foundational requirements of financial risk management: Value-at-Risk estimates, portfolio risk limits, derivative hedging ratios, and stress-test scenario calibrations all depend on forward-looking volatility signals that remain reliable when market conditions depart from average. This paper develops a public-data Causal Multiscale Wavelet Spillover Learning (CMWSL) framework that jointly addresses stock-index volatility forecasting and high-volatility early warning under strict walk-forward evaluation. CMWSL integrates three components: a heterogeneous autoregressive (HAR) persistence block as the dominant linear baseline, causal stationary wavelet transform (SWT) summaries that encode within-index multiscale market dynamics, and a cross-index spillover layer that tests whether medium- and long-scale wavelet energy from peer indices carries incremental risk-relevant information. The empirical analysis covers the S\&P~500, Nasdaq-100, and Dow Jones Industrial Average over a 2513-step out-of-sample evaluation period from 2016 to 2025, with forecast horizons $h \in \{1,5,10\}$ and OHLC-based volatility targets. HAR remains the strongest average model in the main Rogers--Satchell specification, confirming that daily index volatility risk is highly persistence-driven. The multiscale extension delivers statistically significant improvements at longer horizons, in richer public macro-financial information environments, and under the Parkinson target. Clark--West tests detect significant spillover gains in five of nine index--horizon cells (CW\,$=4.83$, $p<0.001$ for S\&P~500 at $h=10$). Critically, tail-conditioned and rolling-window diagnostics show that multiscale and cross-index gains concentrate in upper-volatility regimes and synchronized stress episodes---precisely the conditions in which risk management decisions are most consequential. For market-risk early warning, a logistic classifier built on the same causal feature pipeline delivers the most stable precision--recall performance across all settings, providing an interpretable and operationally auditable alert mechanism suitable for practical risk monitoring.}
+
+\keyword{financial risk management; stock index volatility forecasting; risk early warning; stationary wavelet transform; multiscale learning; wavelet spillover; HAR model; walk-forward evaluation; tail risk; market risk monitoring}
+
+\begin{document}
+
+\section{Introduction}\label{sec:introduction}
+\input{sections/01_introduction}
+
+\section{Data}\label{sec:data}
+\input{sections/02_data}
+
+\section{Methodology}\label{sec:methodology}
+\input{sections/03_methodology}
+
+\section{Experimental Design}\label{sec:design}
+\input{sections/04_experimental_design}
+
+\section{Results}\label{sec:results}
+\input{sections/05_results}
+
+\section{Discussion}\label{sec:discussion}
+\input{sections/06_discussion}
+
+\section{Conclusions}\label{sec:conclusions}
+\input{sections/07_conclusions}
+
+\authorcontributions{Conceptualization, H.L., Y.S. and A.J.; methodology, H.L.; software, H.L.; validation, H.L. and Y.S.; formal analysis, H.L.; investigation, H.L.; data curation, H.L.; writing---original draft preparation, H.L.; writing---review and editing, H.L., Y.S. and A.J.; visualization, H.L.; supervision, A.J. All authors have read and agreed to the published version of the manuscript.}
+
+\funding{This research received no external funding.}
+
+\institutionalreview{Not applicable.}
+
+\informedconsent{Not applicable.}
+
+\dataavailability{The raw market data used in this study are publicly accessible from Stooq (\url{https://stooq.com}) and the Federal Reserve Economic Data (FRED) platform (\url{https://fred.stlouisfed.org}). The repository snapshot used to generate this manuscript contains a structured reviewer reproducibility package with dependency specifications, experiment configuration files, data-construction scripts, evaluation launchers, merged prediction outputs, and figure-generation scripts sufficient to regenerate the reported tables and figures. These materials are organized in the project repository and can be shared directly with editors and reviewers during evaluation.}
+
+\acknowledgments{The authors thank colleagues and reviewers for their constructive suggestions during the development of this study.}
+
+\conflictsofinterest{The authors declare no conflicts of interest.}
+
+\abbreviations{Abbreviations}{
+\noindent
+\begin{tabular}{@{}ll}
+ATR & Average true range \\
+CMWSL & Causal multiscale wavelet spillover learning \\
+DM & Diebold--Mariano \\
+EGARCH & Exponential generalized autoregressive conditional heteroskedasticity \\
+ETF & Exchange-traded fund \\
+FRED & Federal Reserve Economic Data \\
+GARCH & Generalized autoregressive conditional heteroskedasticity \\
+HAR & Heterogeneous autoregressive \\
+OHLC & Open--high--low--close \\
+PR-AUC & Area under the precision--recall curve \\
+QLIKE & Quasi-likelihood loss \\
+RS & Rogers--Satchell \\
+SWT & Stationary wavelet transform
+\end{tabular}
+}
+
+\appendixtitles{yes}
+\appendixstart
+\appendix
+\section{Supplementary Experimental Notes}
+\input{supplement/appendix}
+
+\begin{adjustwidth}{-\extralength}{0cm}
+\reftitle{References}
+\bibliography{bib/references}
+\end{adjustwidth}
+
+\end{document}

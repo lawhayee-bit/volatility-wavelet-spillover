@@ -1,0 +1,22 @@
+\begin{table}[!t]
+\caption{Event-based warning timing summary using a five-day pre-event detection window. Hit rate and median lead are maximized; false-alarm days per event are minimized within each horizon.}
+\label{tab:warning_event_timing}
+\centering
+\footnotesize
+\setlength{\tabcolsep}{4.6pt}
+\renewcommand{\arraystretch}{1.12}
+\begin{tabular}{llcccc}
+\toprule
+Horizon & Model & Hit rate & Median lead & FA / event & Events \\
+\midrule
+$h=1$ & Logistic-Raw & \best{0.821} & \best{5.000} & 5.149 & 460 \\
+ & Naive-Threshold & 0.613 & 4.000 & \best{1.005} & 460 \\
+\midrule
+$h=5$ & Logistic-Raw & 0.597 & \best{5.000} & 16.558 & 134 \\
+ & Naive-Threshold & \best{0.649} & 3.833 & \best{3.641} & 134 \\
+\midrule
+$h=10$ & Logistic-Raw & \best{0.602} & \best{5.000} & 37.330 & 81 \\
+ & Naive-Threshold & 0.556 & 4.333 & \best{6.463} & 81 \\
+\bottomrule
+\end{tabular}
+\end{table}

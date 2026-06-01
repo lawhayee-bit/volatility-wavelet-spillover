@@ -1,0 +1,67 @@
+\documentclass[11pt,a4paper]{article}
+
+\usepackage[margin=2.4cm]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{lmodern}
+\usepackage{microtype}
+\usepackage{enumitem}
+\usepackage{hyperref}
+\hypersetup{colorlinks=true,linkcolor=black,urlcolor=blue}
+
+\title{Response to Reviewer 1 and Summary of Minor Revisions}
+\author{\parbox{0.92\textwidth}{\centering Manuscript:\\[2pt]\textit{Public-Data Causal Multiscale Wavelet Spillover Learning for Stock Index Volatility Forecasting and Risk Early Warning}}}
+\date{26 May 2026}
+
+\begin{document}
+\maketitle
+
+\section*{General Response}
+
+We sincerely thank Reviewer 1 for the careful reading of our manuscript and for the highly positive evaluation. We are grateful that the reviewer found the manuscript clear, the mathematical equations precise, the research design appropriate, and the findings well aligned with the conclusions.
+
+Reviewer 1 did not request any mandatory technical corrections. Accordingly, we did not change the mathematical derivations, experimental results, tables, figures, or conclusions. However, to further strengthen the final revised version and improve the clarity of the paper for publication, we implemented several minor, non-substantive refinements that are fully consistent with the reviewer's positive assessment.
+
+\section*{Reviewer 1 Comment}
+
+\textbf{Comment:} \\
+\emph{``The manuscript is very well-written and demonstrates a great level of clarity. I already reviewed it and found no issue with mathematical equations as well, which are precise. Due to the well aligned significance of the findings presented by authors, I recommended this paper for publication in the present form.''}
+
+\section*{Response}
+
+We sincerely appreciate the reviewer's positive recommendation and encouraging assessment. We are particularly grateful for the confirmation that the manuscript is clearly written, mathematically precise, methodologically appropriate, and that the conclusions are well supported by the results.
+
+Because the reviewer did not identify any flaw requiring correction, we have preserved the core content of the manuscript, including:
+\begin{itemize}[leftmargin=1.5em]
+\item the mathematical formulation,
+\item the experimental design and leakage-free walk-forward protocol,
+\item all reported empirical results,
+\item the interpretation of the findings, and
+\item the main conclusions.
+\end{itemize}
+
+Nevertheless, to further polish the final revised manuscript, we implemented a small set of targeted editorial refinements:
+\begin{enumerate}[leftmargin=1.6em]
+\item \textbf{Abstract refinement.} We added one sentence explicitly stating that preprocessing, wavelet decomposition, calibration rules, and warning thresholds are all re-estimated within each rolling training window. This makes the leakage-free design even more explicit.
+
+\item \textbf{Introduction clarification.} We strengthened the motivation for integrating volatility forecasting and risk warning within one unified pipeline by clarifying that separate forecasting and warning modules may otherwise operate on inconsistent information clocks.
+
+\item \textbf{Methodological consistency statement.} In the Warning Layer subsection, we added an explicit statement that the early-warning model uses the same causally aligned information set and rolling training window as the forecasting layer, reinforcing the operational coherence of the framework.
+\end{enumerate}
+
+These revisions are minor clarifications only. They do not alter the empirical evidence, the statistical conclusions, the model ranking, or any mathematical expression.
+
+\section*{Summary of Actual Manuscript Changes}
+
+The following sections were updated:
+\begin{itemize}[leftmargin=1.5em]
+\item \textbf{Abstract} in \texttt{main.tex}: explicit leakage-free implementation sentence added.
+\item \textbf{Introduction} in \texttt{sections/01\_introduction.tex}: stronger rationale for linking forecasting and warning in one information-consistent framework.
+\item \textbf{Methodology} in \texttt{sections/03\_methodology.tex}: explicit statement added in the Warning Layer subsection to confirm that warning estimation uses the same causal rolling information set as the forecasting model.
+\end{itemize}
+
+\section*{Closing Note}
+
+We thank Reviewer 1 again for the positive and constructive evaluation. The review confirmed that the manuscript is technically sound and publication-ready. Our minor revisions are intended only to further polish the clarity and operational transparency of the final version.
+
+\end{document}

@@ -1,0 +1,20 @@
+\begin{table}[!t]
+\caption{Broad-market regime-conditioned spillover gains. Entries report $\Delta$QLIKE = Spillover-LGB minus Wavelet-LGB for DJIA and S\&P 500 pooled observations. Negative values indicate that cross-index spillover features improve accuracy.}
+\label{tab:spillover_regime}
+\centering
+\small
+\setlength{\tabcolsep}{5.0pt}
+\renewcommand{\arraystretch}{1.10}
+\begin{tabular}{lccc}
+\toprule
+Regime & $h=1$ & $h=5$ & $h=10$ \\
+\midrule
+Bottom 20\% VIX & -0.042 & 0.009 & -0.004 \\
+COVID 2020--2021 & -0.377 & 0.122 & 0.011 \\
+Expansion & -0.054 & -0.016 & \best{-0.006} \\
+Post-2022 & -0.028 & -0.109 & -0.002 \\
+Recession & \best{-0.674} & \best{-0.361} & 0.145 \\
+Top 20\% VIX & -0.069 & -0.045 & -0.002 \\
+\bottomrule
+\end{tabular}
+\end{table}

@@ -1,0 +1,139 @@
+project:
+  name: applsci_volatility_wavelet_ml_spillover
+  version: "1.0.0"
+  random_state: 42
+  raw_snapshot_date: "2026-03-19"
+
+# Cross-index wavelet spillover experiment
+# -----------------------------------------
+# Scientific hypothesis: medium- and long-scale (d2/d3) wavelet detail
+# components of peer equity indices carry incremental predictive content
+# for a target index's future volatility, especially at h=5 and h=10.
+#
+# Ablation ladder (3 regression models, same LightGBM backbone):
+#   1. har                 – pure linear persistence baseline
+#   2. wavelet_lightgbm    – within-index multiscale features
+#   3. spillover_lightgbm  – within-index + cross-index spillover (NOVEL)
+#
+# Statistical test: DM between spillover_lightgbm and wavelet_lightgbm
+# isolates the incremental value of cross-index spillover.
+
+data:
+  start_date: "2005-02-25"
+  end_date: "2025-12-31"
+  # Dedicated panel: includes all plusdata features PLUS xspill_* columns
+  # built by compute_cross_index_spillover_features() in features.py.
+  # Rebuild with: python scripts/run_pipeline.py --config config/experiment_spillover.yaml --stage build --skip-download
+  processed_panel_path: "data/processed/panel_features_spillover.csv.gz"
+  indices:
+    - id: spx
+      label: "S&P 500"
+      stooq_symbol: "^spx"
+      etf_symbol: "spy.us"
+      fred_vix_series: "VIXCLS"
+    - id: ndq
+      label: "Nasdaq-100"
+      stooq_symbol: "^ndq"
+      etf_symbol: "qqq.us"
+      fred_vix_series: "VXNCLS"
+    - id: dji
+      label: "Dow Jones Industrial Average"
+      stooq_symbol: "^dji"
+      etf_symbol: "dia.us"
+      fred_vix_series: "VXDCLS"
+  fred_series:
+    dff: "DFF"
+    dgs10: "DGS10"
+    dgs2: "DGS2"
+    t10y3m: "T10Y3M"
+    nfci: "NFCI"
+    recession_dummy: "USRECD"
+    hy_oas: "BAMLH0A0HYM2"
+    ig_oas: "BAMLC0A0CM"
+    usepu: "USEPUINDXD"
+    rvx: "RVXCLS"
+    vxv: "VXVCLS"
+
+features:
+  target:
+    base_volatility: "rogers_satchell"
+    transform: "log1p"
+    epsilon: 1.0e-8
+  har_windows: [1, 5, 22]
+  short_term_windows: [2, 3, 5]
+  technical:
+    rsi_period: 14
+    atr_period: 14
+    macd_fast: 12
+    macd_slow: 26
+    macd_signal: 9
+  wavelet:
+    enabled: true
+    basis: "sym4"
+    levels: 3
+    min_history: 128
+    max_history: 256
+    energy_windows: [5, 22]
+    series:
+      - "rs_var"
+      - "abs_ret"
+      - "vix_like"
+      - "hy_ig_oas_spread"
+      - "vxv_vix_gap"
+  # Cross-index spillover settings (controls compute_cross_index_spillover_features)
+  spillover:
+    enabled: true
+    levels: [2, 3]
+    series_prefixes:
+      - "wav_rs_var"
+      - "wav_abs_ret"
+      - "wav_vix_like"
+
+experiment:
+  train_window_days: 1260
+  refit_interval_days: 5
+  test_start: "2016-01-04"
+  test_end: "2025-12-31"
+  horizons: [1, 5, 10]
+  inner_cv_splits: 5
+  rolling_step: 1
+  qlike_calibration:
+    enabled: true
+    models:
+      - "lightgbm"
+      - "wavelet_lightgbm"
+      - "spillover_lightgbm"
+    floor_quantile: 0.01
+    floor_quantile_by_horizon:
+      1: 0.05
+      5: 0.01
+      10: 0.01
+    use_scale: false
+    scale_clip: [0.25, 4.0]
+  warning_quantile: 0.90
+  warning_beta: 2.0
+  models:
+    regression:
+      - "har"
+      - "lightgbm"
+      - "wavelet_lightgbm"
+      - "spillover_lightgbm"
+    classification:
+      - "naive_threshold"
+      - "logistic_raw"
+
+runtime:
+  n_jobs: -1
+  verbose: true
+  smoke_defaults:
+    start_date: "2010-01-01"
+    indices: ["spx"]
+    horizons: [1]
+    test_end: "2016-03-31"
+    max_test_steps: 10
+    regression_models:
+      - "har"
+      - "wavelet_lightgbm"
+      - "spillover_lightgbm"
+    classification_models:
+      - "naive_threshold"

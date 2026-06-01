@@ -1,0 +1,28 @@
+\begin{table}[!t]
+\caption{Main regression QLIKE across indices and forecast horizons under the Rogers--Satchell target. Best, second-best, and third-best values within each index--horizon cell are marked by \best{bold shading}, \second{underline}, and \third{light shading}, respectively.}
+\label{tab:main_regression}
+\centering
+\small
+\setlength{\tabcolsep}{6pt}
+\renewcommand{\arraystretch}{1.12}
+\begin{tabular}{llccc}
+\toprule
+Index & Model & $h=1$ & $h=5$ & $h=10$ \\
+\midrule
+S\&P 500 & HAR & \best{-9.0316} & \best{-8.9372} & \second{-8.8682} \\
+ & HV-22 & \second{-8.9405} & -8.8601 & -8.7836 \\
+ & LightGBM & \third{-8.7386} & \second{-8.9022} & \best{-8.8749} \\
+ & Wavelet-LightGBM & -8.7327 & \third{-8.8937} & \third{-8.8603} \\
+\midrule
+Nasdaq-100 & HAR & \best{-8.5635} & \third{-8.4940} & \third{-8.4316} \\
+ & HV-22 & \second{-8.5049} & -8.4472 & -8.3873 \\
+ & LightGBM & \third{-8.4476} & \best{-8.5125} & \second{-8.4621} \\
+ & Wavelet-LightGBM & -8.3827 & \second{-8.5026} & \best{-8.4923} \\
+\midrule
+DJIA & HAR & \best{-9.0021} & \best{-8.9139} & \third{-8.8548} \\
+ & HV-22 & \second{-8.9398} & \third{-8.8619} & -8.7869 \\
+ & LightGBM & \third{-8.5186} & -8.8111 & \second{-8.8636} \\
+ & Wavelet-LightGBM & -8.2222 & \second{-8.8649} & \best{-8.8934} \\
+\bottomrule
+\end{tabular}
+\end{table}

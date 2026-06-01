@@ -1,0 +1,77 @@
+This appendix collects implementation details that support reproducibility but would otherwise interrupt the flow of the main text.
+
+\subsection{Feature Blocks and Practical Implementation}
+
+The final predictor design is organized into persistence, technical, macro-financial, and multiscale blocks. The persistence block contains current volatility, 5-day average volatility, and 22-day average volatility. The technical block contains close-to-close returns, intraday returns, overnight gaps, ATR, RSI, MACD, and short-window stress summaries. The macro-financial block contains index-specific implied-volatility proxies together with rates, term spreads, financial conditions, recession information, and, in the expanded setting, credit spreads, policy uncertainty, and volatility-term-structure variables. The multiscale block contains causal wavelet summaries extracted from the target volatility proxy, absolute returns, and implied-volatility series.
+
+\input{tables/table_implementation_choices}
+
+\subsection{Rolling Evaluation Details}
+
+Every rolling split follows the same sequence: construct all features from the trailing estimation window, estimate the horizon-specific regression model, apply the QLIKE-oriented calibration floor, compute the rolling high-risk threshold, estimate the warning model, and then score the next out-of-sample observation. No preprocessing step is fitted on the full sample. This includes scaling, clipping, wavelet extraction, calibration-floor estimation, and warning-threshold selection.
+
+\subsection{Notation, Metrics, and Testing Notes}
+
+The notation table in the main text is intentionally compact. In implementation terms, the most important distinction is between raw predictors, multiscale summaries, and post-calibration forecasts. Raw predictors are observable market and macro-financial variables. Multiscale summaries are deterministic transformations of causal windows of these variables. Post-calibration forecasts are the quantities actually sent to the QLIKE evaluator and the warning layer. This distinction matters because only the final step changes the loss geometry without changing the underlying training target.
+
+The evaluation metrics also answer different questions. QLIKE emphasizes scale-sensitive volatility calibration, RMSE and MAE measure point error magnitude, PR-AUC measures event ranking under class imbalance, and Brier score evaluates probability calibration. DM tests speak to realized loss differences, whereas CW tests speak to incremental predictive content in nested settings. The article reports both because neither on its own is sufficient to characterize the contribution of a public-data hybrid model.
+
+\subsection{Additional Robustness Interpretation}
+
+The main robustness exercises serve different purposes. The expanded public risk-data experiment tests whether the proposed multiscale design benefits from richer external predictors that remain publicly accessible. The Parkinson experiment tests whether the main conclusion depends on a specific OHLC volatility proxy. Together, these extensions indicate that the proposed framework should be interpreted as a public-data integration pipeline rather than a single narrowly optimized model.
+
+\subsection{Additional Architecture and Diagnostic Figures}
+
+Figure~\ref{fig:encoder_fusion_heads_appendix} provides the module-level expansion of the main architecture used in Section~\ref{sec:methodology}. Figures~\ref{fig:forecast_panels_appendix}, \ref{fig:multiscale_signal_heatmap_appendix}, and~\ref{fig:block_contribution_heatmap_appendix} report secondary diagnostics that support, but do not define, the main computational claims in Section~\ref{sec:results}.
+
+\begin{figure}[!t]
+\centering
+\includegraphics[width=0.96\textwidth]{figures/structure.png}
+\caption{Module-level expansion of the CMWSL pipeline architecture. The figure details the four sequential layers described in Section~\ref{sec:methodology}: the HAR persistence block, the causal stationary-wavelet-transform multiscale layer with scale-wise summary statistics, the cross-index spillover layer, and the horizon-specific forecast and warning heads. The mapping from raw features to final predictions is fully causal and deterministic given the rolling window.}
+\label{fig:encoder_fusion_heads_appendix}
+\end{figure}
+
+\begin{figure}[!t]
+\centering
+\includegraphics[width=0.94\textwidth]{figures/fig05_forecast_panels.pdf}
+\caption{Representative out-of-sample forecast traces in the main and expanded-data specifications. The wavelet-enhanced model follows the build-up and decay of stress episodes more smoothly at \(h=5\) and \(h=10\), whereas isolated daily spikes still tend to favour the parsimonious HAR benchmark.}
+\label{fig:forecast_panels_appendix}
+\end{figure}
+
+\begin{figure}[!t]
+\centering
+\includegraphics[width=0.94\textwidth]{figures/fig11_multiscale_signal_heatmap.pdf}
+\caption{Multiscale signal map in the expanded public risk-data panel. Each cell reports the median absolute Spearman association between a wavelet feature group and future volatility.}
+\label{fig:multiscale_signal_heatmap_appendix}
+\end{figure}
+
+\begin{figure}[!t]
+\centering
+\includegraphics[width=0.94\textwidth]{figures/fig12_block_contribution_heatmap.pdf}
+\caption{Surrogate leave-one-block-out contribution map in the expanded public risk-data panel. Each cell reports the change in out-of-sample \(R^2\) from removing one feature block from a fixed train/test surrogate regression on block embeddings.}
+\label{fig:block_contribution_heatmap_appendix}
+\end{figure}
+
+\begin{figure}[!t]
+\centering
+\includegraphics[width=0.94\textwidth]{figures/fig_spillover_qlike_bars.pdf}
+\caption{QLIKE comparison across indices and forecast horizons for the three models in the spillover ablation. Asterisks above the Spillover-LGB bar indicate Clark--West significance at the corresponding cell.}
+\label{fig:spillover_qlike_bars_appendix}
+\end{figure}
+
+\begin{figure}[!t]
+\centering
+\includegraphics[width=0.96\textwidth]{figures/fig14_warning_event_frontier.pdf}
+\caption{Event-based warning frontier at the index--horizon level. The horizontal axis reports false-alarm days per event on a log scale, the vertical axis reports the five-day event hit rate, and marker size scales with the mean lead time. Grey line segments connect the two warning rules within the same index--horizon cell.}
+\label{fig:warning_event_frontier_appendix}
+\end{figure}
+
+\subsection{Additional Statistical Tables}
+
+\input{tables/table_significance}
+
+\input{tables/table_spillover_regime}
+
+\subsection{Project Assets}
+
+The core manuscript results are generated from three merged result packages: the main Rogers--Satchell specification, the expanded public risk-data specification, and the Parkinson specification. The manuscript figures and tables are produced from these merged packages through deterministic scripts stored in the project repository. This setup is intended to make the final article easy to audit, rerun, and extend.

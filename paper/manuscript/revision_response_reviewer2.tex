@@ -1,0 +1,110 @@
+\documentclass[11pt,a4paper]{article}
+
+\usepackage[margin=2.4cm]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{lmodern}
+\usepackage{microtype}
+\usepackage{enumitem}
+\usepackage{hyperref}
+\hypersetup{colorlinks=true,linkcolor=black,urlcolor=blue}
+
+\title{Response to Reviewer 2 and Summary of Targeted Revisions}
+\author{\parbox{0.92\textwidth}{\centering Manuscript:\\[2pt]\textit{Public-Data Causal Multiscale Wavelet Spillover Learning for Stock Index Volatility Forecasting and Risk Early Warning}}}
+\date{26 May 2026}
+
+\begin{document}
+\maketitle
+
+\section*{General Response}
+
+We sincerely thank Reviewer 2 for the careful and highly substantive assessment of our manuscript. We are particularly grateful that the reviewer recognized the strengths of the paper in five areas: the financial-risk motivation, the transparent CMWSL architecture, the strict elimination of look-ahead bias, the three-step ablation logic, and the disciplined interpretation of results relative to the HAR benchmark.
+
+The review also identified several points where the manuscript could be strengthened further. The most important concerns were:
+\begin{itemize}[leftmargin=1.5em]
+\item the need for deeper economic interpretation of the medium- and long-scale spillover patterns;
+\item the need to clarify the scope of the deep-learning benchmark comparison;
+\item the need to state more explicitly that some unconditional forecast gains are economically modest even when statistically informative; and
+\item the need to improve accessibility for economics-oriented readers in sections with high technical density.
+\end{itemize}
+
+In response, we implemented a focused set of revisions. These changes do not alter the empirical results, mathematical derivations, tables, figures, model rankings, or statistical conclusions. Instead, they improve the interpretation, positioning, and readability of the paper.
+
+\section*{Reviewer 2 Comment}
+
+\textbf{Comment:} \\
+\emph{The reviewer provided a strongly positive overall evaluation of the manuscript and praised the research design, methodological transparency, leakage-free rolling implementation, ablation structure, and careful interpretation of the forecasting and warning results. The reviewer nevertheless recommended several targeted improvements concerning: (i) deeper economic interpretation of frequency-dependent spillovers and financial market integration; (ii) clearer positioning of the benchmark set relative to modern sequential deep-learning models; (iii) a more explicit discussion of the practical economic significance of relatively small QLIKE improvements in some settings; and (iv) improved accessibility for readers from financial economics who may find some methodological sections overly technical.}
+
+\section*{Response}
+
+We thank the reviewer for this careful and constructive assessment. We agree with the core spirit of the suggestions and revised the manuscript accordingly. Our responses are organized around the four substantive points raised in the review.
+
+\subsection*{1. Economic Interpretation of Frequency-Dependent Spillovers}
+
+We agreed that the previous version explained the technical spillover architecture more clearly than the underlying financial mechanism. To address this point, we substantially strengthened the discussion of why peer-index information enters primarily through medium- and long-scale wavelet bands and what this implies for financial market integration.
+
+Specifically, in the \textbf{Discussion} section we added a dedicated subsection titled \emph{``Economic Interpretation of Frequency-Dependent Spillovers''}. This new discussion explains that the concentration of predictive spillover at the d2 and d3 scales is consistent with slower-moving market-integration channels such as:
+\begin{itemize}[leftmargin=1.5em]
+\item institutional portfolio rebalancing,
+\item volatility-targeting and risk-parity deleveraging,
+\item dealer hedging and index-derivative adjustment,
+\item ETF and index-arbitrage activity,
+\item liquidity and margin-driven balance-sheet adjustment, and
+\item delayed assimilation of macro-financial information.
+\end{itemize}
+
+We also clarified the economic distinction between the broad-market indices and Nasdaq-100. The revised text now states explicitly that the stronger spillover response of DJIA and S\&P~500 is consistent with shared medium-horizon repricing of common market risk, whereas the weaker spillover response of Nasdaq-100 points to partial segmentation driven by sector-specific narratives and rate-sensitive valuation channels.
+
+To ensure that this interpretation also appears in the final synthesis of the paper, we added a sentence to the \textbf{Conclusions} section stating that the observed spillover pattern is consistent with a market-integration channel operating through multi-day common-risk repricing rather than uniform next-day contagion.
+
+\subsection*{2. Scope of the Deep-Learning Benchmark Comparison}
+
+We agreed that the benchmark discussion should more clearly distinguish between a controlled deep-learning check and a full state-of-the-art deep-learning horse race. The manuscript already included an LSTM baseline, but the rationale for limiting the deep-learning benchmark set was not stated explicitly enough.
+
+We therefore made two clarifications:
+\begin{enumerate}[leftmargin=1.6em]
+\item In the \textbf{Experimental Design} section, we now state explicitly that the deep-learning benchmark set is intentionally conservative rather than exhaustive. Its purpose is to test whether recurrent nonlinearity over standard volatility inputs overturns the feature-engineering hypothesis under a strict rolling-refit budget.
+\item In the \textbf{Results} section, at the end of the LSTM comparison subsection, we now state explicitly that the paper does not claim that tree boosting dominates every modern sequential architecture such as Transformer or Temporal Fusion Transformer variants. Rather, the paper's claim is narrower: the incremental value of CMWSL comes primarily from causal multiscale and spillover-aware feature design.
+\end{enumerate}
+
+We believe this revision resolves the positioning issue without overstating what was actually tested in the paper. We also added the broader sequential benchmark question to the \textbf{Limitations and Next Steps} subsection as a concrete direction for future work under the same chronology and reproducibility constraints.
+
+\subsection*{3. Economic Significance of the Forecasting and Warning Gains}
+
+We agreed that the manuscript should distinguish more clearly between statistical significance and practical economic magnitude. In the prior draft, this point was partly implicit, but it is now made explicit in both the \textbf{Results} and \textbf{Discussion} sections.
+
+For the forecasting task, we added text stating directly that the unconditional full-sample average QLIKE gap between HAR and \textit{wavelet\_lightgbm} in the main Rogers--Satchell setting is modest. The revised manuscript therefore does not frame CMWSL as delivering large unconditional gains from replacing the benchmark. Instead, it frames the practical value of the method as \emph{conditional}: the gains are concentrated in longer horizons, richer information settings, and synchronized stress states.
+
+For the warning task, we made the practical significance more concrete by explicitly reporting the event-level trade-off. The revised text now states that, relative to the naive threshold rule:
+\begin{itemize}[leftmargin=1.5em]
+\item at $h=1$, \textit{logistic\_raw} raises the hit rate from 0.613 to 0.821 and the median lead time from 4.0 to 5.0 days;
+\item at $h=10$, it raises the hit rate from 0.556 to 0.602 while again reaching a 5.0-day median lead time;
+\item these gains come with a higher false-alarm burden, which the manuscript now highlights explicitly as the economic cost of earlier detection.
+\end{itemize}
+
+Finally, we reinforced the same point in the \textbf{Conclusions} section by stating that the paper does not claim large unconditional economic gains from replacing HAR, but rather conditional economic value in the states and horizons where risk oversight is most difficult and most consequential.
+
+\subsection*{4. Accessibility for Economics-Oriented Readers}
+
+We agreed that the manuscript should remain transparent without becoming unnecessarily difficult for readers coming from financial economics rather than machine learning.
+
+To address this, we revised the opening paragraph of the \textbf{Methodology} section. The revised text now states explicitly that the main text emphasizes the \emph{economic role} of each modeling layer, while implementation-specific detail is condensed in the pseudocode table and supplementary appendix. This change does not remove mathematical transparency, but it improves the framing and signposting of the section for readers who want to understand what each block does economically before parsing the implementation details.
+
+In addition, the expanded economic interpretation added to the \textbf{Discussion} section helps rebalance the manuscript toward financial economics by connecting the empirical findings more directly to market integration, risk repricing, and stress transmission mechanisms.
+
+\section*{Summary of Actual Manuscript Changes}
+
+The following sections were revised in response to Reviewer 2:
+\begin{itemize}[leftmargin=1.5em]
+\item \textbf{Methodology} in \texttt{sections/03\_methodology.tex}: added a readability/signposting sentence emphasizing the economic role of each layer and directing implementation detail to the pseudocode table and appendix.
+\item \textbf{Experimental Design} in \texttt{sections/04\_experimental\_design.tex}: clarified that the deep-learning benchmark is intentionally conservative rather than exhaustive.
+\item \textbf{Results} in \texttt{sections/05\_results.tex}: added explicit discussion of the modest unconditional QLIKE gaps, clarified the practical warning trade-off with concrete event-timing numbers, and tightened the interpretation of the LSTM benchmark.
+\item \textbf{Discussion} in \texttt{sections/06\_discussion.tex}: added a dedicated subsection on the economic interpretation of frequency-dependent spillovers and expanded the discussion of practical significance and limitations.
+\item \textbf{Conclusions} in \texttt{sections/07\_conclusions.tex}: added a concluding sentence linking the spillover result to multi-day market-integration and common-risk repricing.
+\end{itemize}
+
+\section*{Closing Note}
+
+We thank Reviewer 2 again for the careful and constructive evaluation. The review was highly valuable because it did not question the validity of the design or the reported evidence; instead, it pointed to the precise places where the manuscript could better connect its technical results to financial-economic interpretation and practical significance. We believe the revised version is substantially stronger in exactly those dimensions.
+
+\end{document}

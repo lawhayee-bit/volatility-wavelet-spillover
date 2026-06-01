@@ -1,0 +1,39 @@
+\begin{table}[!t]
+\caption{QLIKE comparison of benchmark models and the HAR-LSTM deep-learning
+baseline under the same 1260-day rolling walk-forward protocol.
+The LSTM is trained on the three HAR features (1-, 5-, and 22-day realized
+variance) with 16 hidden units and chronological early stopping.
+Best value per index--horizon cell is \best{bold-shaded}; second-best is \second{underlined}.}
+\label{tab:dl_comparison}
+\centering
+\small
+\setlength{\tabcolsep}{5pt}
+\renewcommand{\arraystretch}{1.10}
+\begin{tabular}{llccc}
+\toprule
+Index & Model & $h=1$ & $h=5$ & $h=10$ \\
+\midrule
+S\&P 500 & HAR & \best{0.5204} & \best{0.3168} & \second{0.3085} \\
+  & HV-22 & 0.6122 & 0.3939 & 0.3932 \\
+  & LightGBM & 0.8149 & \second{0.3518} & \best{0.3019} \\
+  & \textit{wavelet\_lightgbm} & 0.8210 & 0.3603 & 0.3165 \\
+\cmidrule(lr){2-5}
+  & LSTM & \second{0.6072} & 0.3946 & 0.3510 \\
+\midrule
+Nasdaq-100 & HAR & \best{0.4798} & 0.2763 & 0.2733 \\
+  & HV-22 & 0.5386 & 0.3231 & 0.3176 \\
+  & LightGBM & 0.5955 & \best{0.2578} & \second{0.2428} \\
+  & \textit{wavelet\_lightgbm} & 0.6607 & \second{0.2677} & \best{0.2126} \\
+\cmidrule(lr){2-5}
+  & LSTM & \second{0.5176} & 0.3097 & 0.2910 \\
+\midrule
+DJIA & HAR & \best{0.5169} & \best{0.3144} & 0.3048 \\
+  & HV-22 & \second{0.5795} & 0.3665 & 0.3727 \\
+  & LightGBM & 1.0023 & 0.4173 & \second{0.2960} \\
+  & \textit{wavelet\_lightgbm} & 1.3000 & \second{0.3634} & \best{0.2662} \\
+\cmidrule(lr){2-5}
+  & LSTM & 0.5957 & 0.3653 & 0.3430 \\
+\midrule
+\bottomrule
+\end{tabular}
+\end{table}

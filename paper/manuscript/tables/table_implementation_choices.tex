@@ -1,0 +1,24 @@
+\begin{table}[H]
+\caption{Key implementation choices used in the final reproducible pipeline. Each setting is fixed before the final out-of-sample evaluation.}
+\label{tab:implementation_choices}
+\centering
+\small
+\setlength{\tabcolsep}{4pt}
+\renewcommand{\arraystretch}{1.12}
+\begin{tabular}{>{\raggedright\arraybackslash}p{0.23\textwidth}>{\raggedright\arraybackslash}p{0.20\textwidth}>{\raggedright\arraybackslash}p{0.49\textwidth}}
+\toprule
+Component & Final choice & Practical rationale \\
+\midrule
+Core sample & SPX, NDQ, and DJI daily panels & Balances market representativeness, data length, and replication cost \\
+Main volatility proxy & Rogers--Satchell & Uses OHLC information while remaining stable under a public daily-data design \\
+Robustness target & Parkinson & Tests whether conclusions depend on the main OHLC proxy \\
+Wavelet basis and depth & Symlet-4, \(J=3\) & Produces a compact short/medium/long decomposition without over-expanding the feature space \\
+Wavelet extraction window & Minimum 128 and maximum 256 observations & Preserves causal computation while avoiding excessive edge instability \\
+Rolling estimation window & 1260 trading days & Approximates a five-year learning window for stable walk-forward estimation \\
+Refit frequency & Every 5 trading days & Controls runtime while keeping model updates frequent enough for daily deployment \\
+Warning threshold & Rolling 90th percentile of future volatility & Adapts to cross-index scale differences and regime shifts \\
+Decision threshold & \(F_2\)-optimal cutoff & Prioritizes recall because missed high-risk episodes are more costly than false alarms \\
+Primary evaluation metric & QLIKE & Appropriate for positive volatility forecasts and imperfect volatility proxies \\
+\bottomrule
+\end{tabular}
+\end{table}

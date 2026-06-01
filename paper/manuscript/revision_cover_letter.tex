@@ -1,0 +1,81 @@
+\documentclass[11pt, a4paper]{letter}
+
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{lmodern}
+\usepackage[margin=2.5cm]{geometry}
+\usepackage{microtype}
+\usepackage{hyperref}
+\hypersetup{colorlinks=true, urlcolor=blue, linkcolor=black}
+
+\address{%
+  Aiping Jiang\\
+  SHU-UTS SILC Business School\\
+  Shanghai University\\
+  Jiading District, Shanghai 201800, China\\
+  \href{mailto:ajiang@shu.edu.cn}{ajiang@shu.edu.cn}
+}
+
+\date{26 May 2026}
+
+\signature{Aiping Jiang\\(Corresponding Author, on behalf of all authors)}
+
+\begin{document}
+
+\begin{letter}{%
+  Editorial Office\\
+  \textit{Risks}\\
+  MDPI AG, St.\ Alban-Anlage 66\\
+  4052 Basel, Switzerland
+}
+
+\opening{Dear Editors,}
+
+Please find enclosed the revised version of our manuscript entitled
+
+\begin{center}
+  \textbf{``Public-Data Causal Multiscale Wavelet Spillover Learning for\\
+  Stock Index Volatility Forecasting and Risk Early Warning''}
+\end{center}
+
+\noindent resubmitted for consideration as an \textit{Article} in
+\textit{Risks}.
+
+We thank the reviewers for their careful and constructive evaluations.
+In this revision, we have addressed all comments and improved the
+manuscript in a focused way without altering the core empirical evidence.
+The main revisions include:
+\begin{enumerate}
+  \item stronger economic interpretation of the medium- and long-scale
+    spillover results, including their implications for market integration;
+  \item clearer positioning of the deep-learning comparison as a
+    controlled benchmark rather than an exhaustive sequential-model sweep;
+  \item more explicit discussion of the practical economic significance of
+    the forecasting and warning gains; and
+  \item improved signposting for finance-oriented readers in the
+    methodology and discussion sections.
+\end{enumerate}
+
+The revised manuscript remains fully based on public data and a strict
+walk-forward protocol. All preprocessing, wavelet decomposition,
+calibration, and warning-threshold estimation are carried out within each
+rolling training window to preserve causal integrity and avoid look-ahead
+bias.
+
+For transparency, we have also prepared point-by-point responses to both
+reviewers and include them as non-published revision materials.
+
+This manuscript is original work, has not been published elsewhere, and is
+not under consideration by any other journal. All authors have read and
+approved the revised version. There is no authorship change in this
+revision.
+
+Thank you for your time and consideration.
+
+\closing{Sincerely,}
+
+\ps{Funding: This research received no external funding. Conflicts of
+interest: The authors declare no conflicts of interest.}
+
+\end{letter}
+\end{document}
