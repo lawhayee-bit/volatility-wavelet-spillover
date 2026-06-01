@@ -18,6 +18,18 @@
 
 ---
 
+## 👥 Authors
+
+> *Author list to be updated upon official publication.*
+
+| Name | Affiliation | Contact |
+|------|-------------|---------|
+| First Author | — | — |
+| Second Author | — | — |
+| Corresponding Author | — | — |
+
+---
+
 This repository provides a fully reproducible experiment pipeline for:
 
 | | |
@@ -87,6 +99,22 @@ tests/          unit tests
 
 ## 🔬 Methods at a Glance
 
+### Method Overview
+
+<p align="center">
+  <img src="paper/manuscript/figures/fig01_method_flow.png" alt="Method flow diagram" width="85%">
+  <br>
+  <em>Figure 1 — Overall pipeline: public data ingestion → causal wavelet multiscale decomposition → cross-index spillover features → hybrid stacking forecaster → risk early warning.</em>
+</p>
+
+### Main Results (QLIKE Heatmap)
+
+<p align="center">
+  <img src="paper/manuscript/figures/fig03_main_qlike_heatmap.png" alt="Main QLIKE results heatmap" width="85%">
+  <br>
+  <em>Figure 3 — QLIKE loss heatmap across 18 models, 3 indices, and 3 forecast horizons. Lower is better. Wavelet-LightGBM and the stacking model consistently achieve the lowest QLIKE.</em>
+</p>
+
 <details>
 <summary><b>18 Regression Models</b></summary>
 
@@ -129,6 +157,17 @@ tests/          unit tests
 
 > All data is **publicly available** and downloaded automatically by the pipeline.
 
+## � Links
+
+| Resource | URL |
+|----------|-----|
+| 📰 Journal — *Risks* (MDPI) | https://www.mdpi.com/journal/risks |
+| 📊 FRED (macro data) | https://fred.stlouisfed.org |
+| 📈 Stooq (market data) | https://stooq.com |
+| 🐍 PyWavelets | https://pywavelets.readthedocs.io |
+| 💡 LightGBM | https://lightgbm.readthedocs.io |
+| 🤗 ARCH library | https://arch.readthedocs.io |
+
 ## 📄 Citation
 
 > *Full citation to be added upon official publication.*
@@ -142,6 +181,14 @@ tests/          unit tests
   note    = {Accepted}
 }
 ```
+
+## 🙏 Acknowledgements
+
+We sincerely thank all collaborators and advisors who contributed to this work.
+
+Special thanks to **[Haiyi Li (Gatsby0916)](https://github.com/Gatsby0916)** for his invaluable guidance, expert advice, and consistent support throughout the entire research and development process of this project.
+
+We also gratefully acknowledge our supervisors and research partners for their insightful feedback, constructive discussions, and encouragement at every stage of this work.
 
 ## 📜 License
 
