@@ -105,12 +105,12 @@ tests/          unit tests
   <em>Figure 1 — Overall pipeline: public data ingestion → causal wavelet multiscale decomposition → cross-index spillover features → hybrid stacking forecaster → risk early warning.</em>
 </p>
 
-### Main Results (QLIKE Heatmap)
+### Main Results — Risk Warning Score Distribution
 
 <p align="center">
-  <img src="paper/manuscript/figures/fig03_main_qlike_heatmap.png" alt="Main QLIKE results heatmap" width="85%">
+  <img src="paper/manuscript/figures/fig08_warning_score_distribution.png" alt="Warning score distribution" width="85%">
   <br>
-  <em>Figure 3 — QLIKE loss heatmap across 18 models, 3 indices, and 3 forecast horizons. Lower is better. Wavelet-LightGBM and the stacking model consistently achieve the lowest QLIKE.</em>
+  <em>Figure 8 — Risk early-warning score distributions across high- and low-volatility regimes. The causal wavelet feature pipeline achieves clear separation between the two regimes, enabling reliable threshold-based alerting.</em>
 </p>
 
 <details>
