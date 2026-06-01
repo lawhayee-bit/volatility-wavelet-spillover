@@ -100,9 +100,9 @@ tests/          unit tests
 ### Method Overview
 
 <p align="center">
-  <img src="paper/manuscript/figures/fig01_method_flow.png" alt="Method flow diagram" width="85%">
+  <img src="paper/manuscript/figures/Method.png" alt="CMWSL framework architecture" width="85%">
   <br>
-  <em>Figure 1 — Overall pipeline: public data ingestion → causal wavelet multiscale decomposition → cross-index spillover features → hybrid stacking forecaster → risk early warning.</em>
+  <em>Figure 1 — Overall architecture of the proposed CMWSL stock-index volatility forecasting and risk-warning framework.</em>
 </p>
 
 ### Main Results — Risk Warning Score Distribution
