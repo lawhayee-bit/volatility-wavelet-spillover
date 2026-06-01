@@ -168,17 +168,30 @@ tests/          unit tests
 
 ## 📄 Citation
 
-> *Full citation to be added upon official publication.*
+If you use this code or build on this work, please cite:
+
+**Plain text (MDPI style):**
+
+> Liu, H.; Shen, Y.; Jiang, A. Public-Data Causal Multiscale Wavelet Spillover Learning for Stock Index Volatility Forecasting and Risk Early Warning. *Risks* **2026**, *XX*, XXXX. https://doi.org/10.3390/risksXXXXXXXX
+
+**BibTeX:**
 
 ```bibtex
-@article{risks2026wavelet,
-  title   = {Public-Data Causal Multiscale Wavelet Spillover Learning for
-             Stock Index Volatility Forecasting and Risk Early Warning},
-  journal = {Risks},
-  year    = {2026},
-  note    = {Accepted}
+@article{liu2026cmwsl,
+  author   = {Liu, Hengyan and Shen, Yisu and Jiang, Aiping},
+  title    = {Public-Data Causal Multiscale Wavelet Spillover Learning for
+              Stock Index Volatility Forecasting and Risk Early Warning},
+  journal  = {Risks},
+  year     = {2026},
+  volume   = {XX},
+  number   = {XX},
+  pages    = {XXXX},
+  doi      = {10.3390/risksXXXXXXXX},
+  url      = {https://doi.org/10.3390/risksXXXXXXXX}
 }
 ```
+
+> Volume, issue, article number, and DOI will be updated upon official online publication.
 
 ## 🙏 Acknowledgements
 
