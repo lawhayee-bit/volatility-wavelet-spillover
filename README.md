@@ -5,6 +5,9 @@
     <img src="https://img.shields.io/badge/Journal-Risks%20(MDPI)-blue?style=flat-square&logo=open-access&logoColor=white" alt="Journal: Risks (MDPI)">
   </a>
   <img src="https://img.shields.io/badge/Status-Accepted-brightgreen?style=flat-square" alt="Status: Accepted">
+  <a href="https://github.com/lawhayee-bit/volatility-wavelet-spillover/blob/main/paper/manuscript/main.pdf">
+    <img src="https://img.shields.io/badge/Paper-PDF-red?style=flat-square&logo=adobe-acrobat-reader&logoColor=white" alt="Paper PDF">
+  </a>
   <img src="https://img.shields.io/badge/Python-3.10%2B-3776AB?style=flat-square&logo=python&logoColor=white" alt="Python 3.10+">
   <img src="https://img.shields.io/badge/License-MIT-yellow?style=flat-square" alt="License: MIT">
   <img src="https://img.shields.io/badge/Reproducible-Yes-success?style=flat-square&logo=github" alt="Reproducible">
@@ -159,7 +162,8 @@ tests/          unit tests
 
 | Resource | URL |
 |----------|-----|
-| 📰 Journal — *Risks* (MDPI) | https://www.mdpi.com/journal/risks |
+| � Paper (PDF) | [paper/manuscript/main.pdf](https://github.com/lawhayee-bit/volatility-wavelet-spillover/blob/main/paper/manuscript/main.pdf) |
+| �📰 Journal — *Risks* (MDPI) | https://www.mdpi.com/journal/risks |
 | 📊 FRED (macro data) | https://fred.stlouisfed.org |
 | 📈 Stooq (market data) | https://stooq.com |
 | 🐍 PyWavelets | https://pywavelets.readthedocs.io |
