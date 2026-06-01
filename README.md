@@ -20,13 +20,11 @@
 
 ## 👥 Authors
 
-> *Author list to be updated upon official publication.*
-
 | Name | Affiliation | Contact |
 |------|-------------|---------|
-| First Author | — | — |
-| Second Author | — | — |
-| Corresponding Author | — | — |
+| **Hengyan Liu** | Sino-European School of Technology, Shanghai University, Shanghai 200444, China | hengyan@shu.edu.cn |
+| **Yisu Shen** | Sino-European School of Technology, Shanghai University, Shanghai 200444, China | yisu@shu.edu.cn |
+| **Aiping Jiang** ✉️ *(Corresponding)* | SHU-UTS SILC Business School, Shanghai University, Jiading District, Shanghai 201800, China | ajiang@shu.edu.cn |
 
 ---
 
