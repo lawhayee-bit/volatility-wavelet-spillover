@@ -16,7 +16,7 @@
 <p align="center">
   <b>Official implementation of:</b><br>
   <i>Public-Data Causal Multiscale Wavelet Spillover Learning for Stock Index Volatility Forecasting and Risk Early Warning</i><br>
-  <b>Risks</b> (MDPI), 2026 — <i>Accepted</i>
+  <b>Risks</b> (MDPI), 2026 — <i>Published</i>
 </p>
 
 ---
